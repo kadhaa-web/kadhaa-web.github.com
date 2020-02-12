@@ -79,6 +79,11 @@
 		width: 350px;
 		border-radius: 20px;
 	}
+	
+	
+	#kadhaa-logo{
+		width: 200px;
+	}
 
 	
 
@@ -118,6 +123,11 @@
 		font-weight: 900;
 		font-size: 11px;
 		letter-spacing: 1px;
+	}
+	
+	
+	#kadhaa-logo{
+		width: 180px;
 	}
 
 }
