@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+		<!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <title>KADHAA</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/media-queries.css">
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+
+    <body>
+
+	
+
+        <!-- Landing Page -->
+        <div class="top-content d-flex align-items-center justify-content-center">
+            <div class="container">
+
+                <img src="./assets/ico/logo.png" width="180">
+                <div class="description wow">
+                    <p>
+                        SOMETHING AWSOME IS IN THE WORKS!
+                    </p>
+                </div>
+                <div class="description wow">
+                    <h6>
+                        STAY TUNED. LAUNCHING SOON.
+                    </h6>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-center description mb-3">
+                    <div class="bg-white d-flex align-items-center justify-content-between">
+                        <input id="emailField" name="entry.626433790"  class="input-field" placeholder="Enter your email address" type="email">
+                        <span class="notify-btn"  target="_self" onclick="postToGoogle()" action="" autocomplete="off">NOTIFY ME</span>
+                    </div>
+                </div>
+
+                <div id="success-msg" class="success-msg"><i class="fas fa-check-circle"></i> THANK YOU FOR YOUR SUBMISSION.</div>
+                <div id="failed-msg" class="failed-msg"><i class="fas fa-check-circle"></i> PLEASE ENTER A VALID EMAIL.</div>
+ 
+            </div>            
+        </div>
+
+        
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-3.2.1.min.js"></script>
+        <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/retina-1.1.0.min.js"></script>
+        <script src="assets/js/waypoints.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+        <script>
+            function postToGoogle() {
+                            var x = document.getElementById('success-msg');
+                            x.style.visibility = 'hidden'
+                            var y = document.getElementById('failed-msg');
+                            x.style.visibility = 'hidden'
+
+                            var field1 = $("#emailField").val();
+
+                            if(field1 == ""){        
+                                var x = document.getElementById('success-msg');
+                                x.style.display = 'none';
+                                
+                                y.style.display = 'block'
+                                y.style.visibility = 'visible';
+                                document.getElementById("emailField").focus();
+                                return false;
+                            } 
+                            
+                            if( !isValidEmailAddress(field1) ) {
+                                 /* do stuff here */ 
+                                var x = document.getElementById('success-msg');
+                                x.style.display = 'none';
+                                
+                                y.style.display = 'block'
+                                y.style.visibility = 'visible';
+                                document.getElementById("emailField").focus();
+                                return false;
+                            }
+
+                
+                            $.ajax({
+                                url: "https://docs.google.com/forms/d/e/1FAIpQLSehA9h35AHmXAqd5CNU0y1gnd04xcaCp6rTRx1-p2OK3zvE2g/formResponse?",
+                                data: {"entry.626433790": field1},
+                                type: "POST",
+                                dataType: "xml",
+                                success: function(d)
+                                {
+                                    // alert('Successfully sent');
+                                },
+                                error: function(x, y, z)
+                                    {
+                                        var y = document.getElementById('failed-msg');
+                                        y.style.visibility = 'hidden'
+                                        y.style.display = "none";
+
+                                        var x = document.getElementById('success-msg');
+                                        x.style.display = "block";
+                                        x.style.visibility = 'visible';
+                                    }
+                            });
+
+
+
+                            return false;
+                        }
+
+                        function isValidEmailAddress(emailAddress) {
+                            var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+                            return pattern.test(emailAddress);
+                        }
+        </script>
+
+    </body>
+
+</html>
