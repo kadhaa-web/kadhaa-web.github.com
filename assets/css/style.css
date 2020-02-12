@@ -1,0 +1,134 @@
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
+}
+
+strong { font-weight: 600; }
+
+a, a:hover, a:focus { color: #9b59b6; text-decoration: none; transition: all .3s; }
+
+h1, h2 {
+	margin-top: 10px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 38px;
+    font-weight: 300;
+    color: #555;
+    line-height: 50px;
+}
+
+h3 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 22px;
+    font-weight: 300;
+    color: #555;
+    line-height: 30px;
+}
+
+img { max-width: 100%; }
+
+.medium-paragraph {
+	font-size: 17px;
+	line-height: 32px;
+}
+
+.input-field{
+	border: 0px solid white;
+	font-size: 13px;
+	margin-left: 15px;
+	width: 350px;
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: 2px;
+}
+
+.input-field:focus{
+	outline: none;
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: 2px;
+}
+
+.bg-white{
+	background: white;
+	width: 500px;
+	border-radius: 20px;
+}
+
+.notify-btn{
+	background: black;
+	color: white;
+	font-size: 10px;
+	border-radius: 20px;
+	padding: 5px 15px;
+	letter-spacing: 2px;
+	cursor: pointer;
+}
+
+.vh100{
+	height: 100vh;
+}
+
+/***** Top content *****/
+
+.top-content {
+	padding: 210px 0;
+	height: 100vh;
+}
+
+.top-content .text {
+	color: #fff;
+}
+
+.top-content .text h1 {
+	margin-top: 25px;
+	color: #fff;
+}
+
+.top-content .description {
+	margin: 30px 0 10px 0;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 900;
+}
+
+.top-content .description p { opacity: 0.8; }
+
+.top-content .top-big-link {
+	margin-top: 45px;
+}
+
+
+h6{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 900;
+	letter-spacing: 7px;
+}
+
+p{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 900;
+	font-size: 11px;
+	letter-spacing: 3px;
+}
+
+.success-msg{
+	text-align: center !important; 
+	display: inline;;
+	visibility: hidden;
+	color:#000;
+	font-size: 13px;
+	font-family: 'Roboto', sans-serif;
+	color: green;
+}
+
+.failed-msg{
+	text-align: center !important; 
+	display: inline;;
+	visibility: hidden;
+	color:#000;
+	font-size: 13px;
+	font-family: 'Roboto', sans-serif;
+	color: red;
+}
